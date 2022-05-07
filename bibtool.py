@@ -13,8 +13,8 @@ def main():
    parser.add_argument("-d", "--doi", action="store_true",help="Remove DOI fields")
    args=parser.parse_args()
 
-       
-   abbrev=abbreviate('Journal of the American statistical association')
+   #Example    
+   #abbrev=abbreviate('Journal of the American statistical association')
 
    try:
        with open(args.inputfile) as bibtex_file:
