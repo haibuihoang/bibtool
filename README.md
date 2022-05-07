@@ -16,7 +16,7 @@ optional arguments:
  ```
  
  
- #Note:
+ # Note:
  
  The journal names abbreviation data base is included in `abbrev_journal.csv`, please add additional journals to your need. 
  
