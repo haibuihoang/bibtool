@@ -20,7 +20,7 @@ optional arguments:
  
  The journal names abbreviation data base is included in `abbrev_journal.csv`, please add additional journals to your need. 
  
- The main script is a Python 3 script `bibtool.py`, which require `pandas`, `bibtexparser` packages.
+ The main script is a Python 3 script `bibtool.py`, which requires `pandas`, `bibtexparser` packages.
  
  `bibtool` is a zsh script wrapper, but you can write anther shell wrapper as well
  
