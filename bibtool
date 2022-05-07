@@ -1,0 +1,3 @@
+#!/bin/zsh
+scpdir=${0:a:h}
+python $scpdir/bibtool.py $@
