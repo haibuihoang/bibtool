@@ -2,6 +2,7 @@ import pandas as pd
 import bibtexparser as bp
 import argparse
 import sys
+import os 
 
 
 def main():
@@ -13,8 +14,10 @@ def main():
    parser.add_argument("-d", "--doi", action="store_true",help="Remove DOI fields")
    args=parser.parse_args()
 
-   #Example    
-   #abbrev=abbreviate('Journal of the American statistical association')
+
+   #journal data base
+   scpdir=os.path.dirname(os.path.realpath(__file__))
+   df=pd.read_csv(f"{scpdir}/abbrev_journal.csv",sep=';')
 
    try:
        with open(args.inputfile) as bibtex_file:
@@ -26,7 +29,7 @@ def main():
    for i,e in enumerate(bib_database.entries):
       if (args.abbrev):
          if 'journal' in e:
-            e['journal'] = abbreviate(e['journal'])
+            e['journal'] = abbreviate(e['journal'],df)
       if (args.url):
          e.pop('url', None)
       if (args.doi):
@@ -45,10 +48,7 @@ def main():
    return 0
 
 
-def abbreviate(name):
-   import os 
-   scpdir=os.path.dirname(os.path.realpath(__file__))
-   df=pd.read_csv(f"{scpdir}/abbrev_journal.csv",sep=';')
+def abbreviate(name,df):
    subdf = df.loc[df['Journal'].str.lower() == name.lower()]
    if (len(subdf)>0): 
        return subdf['Abbreviation'].iloc[0]
