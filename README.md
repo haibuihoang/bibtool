@@ -1,3 +1,6 @@
+# Overview
+bibtool is an short and simple tool to modify a bibtex file: change the journal names to their abbreviation forms, remove URL or DOI fields.
+
 # Usage
 
 ```
